@@ -1,0 +1,30 @@
+Vue App chính là 1 component nhưng là component cha
+- Tạo thêm các component con giúp dễ dàng chia nhỏ project thành nhiều phần
+- Mỗi component con đều có các template, script và style riêng
+
+
+- Khai báo component con:
+
+    Trong thẻ template (<div id='...'>; <template>)
+     Khai báo thẻ con bằng tên <custom-component />
+    Trong thẻ Script:
+
+    Khai báo sau khi khai báo Vue App cha, và trước khi mount:
+     Khai báo component con:
+     app.component('tên', {
+        Trong này có thể khai báo đầy đủ các properties giống App cha
+        Như data(){return {}},methods: {},computed: {}})
+    
+    - Khác biệt là component con có thể khai báo template là 1 properties có giá trị là 1 html, template đó sẽ thay thế toàn bộ html có trong App Cha.
+    
+    Tất cả biến trong data chỉ có thể sử dụng trong template con,
+
+
+    template:`
+    <div>
+        <input type="email" />
+        <input type="password" />
+    </div>
+    `
+
+***Component Props

@@ -7,3 +7,27 @@ Cách gọi:
 v-on: -> shortcut: @
 
 ví dụ <button @click="do smt">Click me!</button>
+
+
+
+
+Methods (Các phương thức của Vue App) : 
+- Là 1 properties 
+đồng thời là 1 object bên trong App, 
+bên trong chứa các properties là các function.
+- Các function có thể truyền vào đối số là các biến trong data,
+do đó xử lý bên trong function có thể không cần đưa vào this.,
+nhưng điều đó sẽ khiến function không thể bind 2 chiều,
+biến của data sẽ giữ nguyên
+
+methods: {
+    mouseClick(message){
+        console.log(message) 
+        // nếu không đưa vào đối số: console.log(this.message)
+    }
+}
+
+@submit.prevent="function" : ví dụ trong form, sẽ submit form nhưng ngăn
+default events là load lại trang
+
+Cần học thêm 

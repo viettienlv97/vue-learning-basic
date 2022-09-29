@@ -14,10 +14,12 @@
 <body>
     <!-- 1 thẻ có id được mount sẽ được gọi là 1 template -->
     <div id="app" v-cloak>
+        <custom-form />
+
         <h4 v-if="true">{{greeting}}</h4>
         <input v-model="greeting" v-if="isVisible" @keyup.enter="greet" />
         <br>
-        <button v-on:click="toggleInput">Toggle input</button>
+        <button v-on:click.prevent.stop="toggleInput">Toggle input</button>
     </div>
 
 
@@ -45,6 +47,93 @@
             }
         }
     })
+    app.component('custom-form',{
+        template:
+        // `
+        //     <form @submit.prevent="handleSubmit">
+        //         <p v-for="(str,i) in inputs" :key="i">{{str}}, {{i}}</p>
+                
+                
+        //         <label>{{title}}</label>
+        //         <br>
+        //         <custom-input v-model="email" :label="emailLabel" />
+        //         <br>
+        //         <custom-input v-model="password" :label="passwordLabel" />
+        //         <br>
+        //         <button>Submit</button>
+        //     </form>
+        // `
+            `
+                <form @submit.prevent="handleSubmit">
+                    <h2>{{title}}</h2>
+                    <custom-input
+                        v-for="(input,index) in anotherInputs"
+                        :key="index"
+                        v-model="input.value"
+                        :label="input.label"
+                        :type="input.type"
+                    />
+                    <button>Submit</button>
+            `
+            ,
+        components: ['custom-input'],
+        data(){
+            return {
+                inputs:[
+                    'email',
+                    'fullname',
+                    'password',
+                ],
+                anotherInputs:[
+                    {
+                        label: 'Email',
+                        value: '',
+                        type: 'email',
+                    },{
+                        label: 'Password',
+                        value: '',
+                        type: 'password',
+                    }
+                ],
+                title: "Login form",
+                // email: '',
+                // password: '',
+                // emailLabel: 'Email',
+                // passwordLabel: 'Password'
+
+            }
+        },
+        methods:{
+            handleSubmit(){
+                console.log('Submitted',this.anotherInputs[0].value,this.anotherInputs[1].value)
+            }
+        }
+    })
+    app.component('custom-input',{
+        template: `
+            <label>
+                {{label}}
+                <input :type='type' v-model="inputValue" />
+            </label>
+        `,
+        props:['label','modelValue','type'],
+        computed:{
+            inputValue:{
+                get(){
+                    return this.modelValue
+                },
+                set(value){
+                    this.$emit('update:modelValue', value)
+                }
+            }
+        }
+        // data(){
+        //     return{
+        //         inputValue: ''
+        //     }
+        // }
+    })
+
     // mount Vue App vào trong 1 thẻ html và thẻ đó sẽ được gọi là 1 template
     app.mount('#app')
 </script>

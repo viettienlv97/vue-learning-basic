@@ -1,0 +1,22 @@
+v-for
+
+Lặp lại các giá trị trong mảng trong data:
+<p v-for="str in arrays" :key="str"> {{ str }} </p>
+
+Mỗi khi lặp trong vue app, phải dùng thêm thuộc tính key="", key bắt buộc phải
+unique theo mỗi thành phần của vòng lặp.
+Lý do dùng key khá nâng cao nên chưa học, chỉ cần biết đơn giản nó khai báo 
+tách biệt tất cả element mỗi khi lặp trong template
+Giúp tăng hiệu suất và giảm bug 
+
+Lặp các giá trị trong mảng chứa các object:
+
+data(){
+    return {
+        inputs:[
+            {name: ''},
+            {email: ''},
+            {password: ''},
+        ]
+    }
+}
