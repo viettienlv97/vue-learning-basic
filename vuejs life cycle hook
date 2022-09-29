@@ -1,0 +1,29 @@
+1. Hook
+- Là 1 function mà sẽ được kích hoạt để chạy trong 1 thời điểm nhất định trong 
+vòng đời của 1 component
+- Có thể là function chạy ngay khi render component hoặc ngay khi xoá component
+
+
+
+
+2. Component Life Cycle
+    Tất cả các Hooks đều là properties trong vue app, hoặc components
+- Tác dụng:
+    - Dùng để kiếm tra khi người dùng được cấp quyền
+    - Gọi API
+    - Thêm hoặc loại bỏ 1 sự kiện nào đó
+    - Lấy data, hoặc xoá bỏ data
+
+- Có các hooks sau:
+    updated(){
+        Kích hoạt khi có data thay đổi,...
+    }
+    created(){
+        Kích hoạt khi component được tạo ra
+    },
+    mounted(){
+        Kích hoạt khi component được mount vào html
+    },
+    unmounted(){
+        Kích hoạt khi component bị remove khỏi html
+    },
