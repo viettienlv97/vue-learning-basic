@@ -1,0 +1,9 @@
+Có rất  nhiều events trong trình duyệt, như click chuột,
+di chuyển chuột, double click, hover,... và nhấn phím, 
+bắt đầu nhấn, nhấc phím,... đều có thể bắt và được đọc
+
+Cách gọi:
+
+v-on: -> shortcut: @
+
+ví dụ <button @click="do smt">Click me!</button>

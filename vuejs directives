@@ -1,0 +1,31 @@
+v-model: 
+Được sử dụng như 1 html attribute, và sẽ sử dụng tất cả đối số được đưa vào
+
+khi thay đổi đối số trong v-model, ví dụ trong ô input, nó sẽ thay đổi cả dữ liệu
+trong data, đây được gọi là binding 2 chiều
+
+v-show:
+Đưa vào đối số là true hoặc false, sẽ hiển thị thẻ chứa nó khi có giá trị true,
+nhưng sẽ chỉ display:none khi có giá trị false,
+thẻ chứa nó vẫn được render trong html
+
+v-if: 
+Được đưa vào đối số là true hoặc false, hiển thị thẻ chứa nó khi có giá trị true,
+xoá thẻ chứa nó khi có giá trị false, thẻ chứa nó không được render trong html
+
+Tuỳ vào trường hợp muốn render hoặc không, ví dụ thẻ loading được render trong html,
+sao khi page được tải sẽ bị xoá khỏi html
+
+Bên cạnh v-if còn có v-else-if và v-else
+v-else-if được kích hoạt khi v-if có giá trị là false, cũng nhận đối số để xác định
+có kích hoạt hay không
+v-else không nhận đối số, chỉ được kích hoạt khi v-if và v-else-if có giá trị false
+
+v-cloak: sử dụng để ẩn template đang load cho đến khi nó sẵn sàng,
+thẻ chứa nó sẽ có attribute là v-cloak khi đang load, và sẽ xoá nó khi load xong
+
+gắn trực tiếp vào thẻ : v-cloak
+trong css, nhập code:
+[v-cloak]{
+    display: none;
+}

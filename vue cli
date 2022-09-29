@@ -1,0 +1,21 @@
+Sử dụng cmd thay vì powershell
+Cài đặt node js
+
+kiểm tra phiên bản node: node -v
+kiểm tra phiên bản npm; npm -v
+
+Cài đặt vue cli : install -g @vue/cli
+Xem các lệnh của vue: vue
+Kiểm tra phiên bản vue cli:
+    vue --version
+
+tạo project vue 
+vue create ten-project
+
+cd vào project 
+npm run serve
+
+
+
+
+

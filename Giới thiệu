@@ -1,0 +1,60 @@
+App Vue dùng để thay thế hoặc chèn html vào 1 thẻ
+trong html
+
+Khi chạy vue bằng <script></script>
+Nguồn là: <script src="https://unpkg.com/vue@next"></script>
+Trong body sẽ phải có 1 thẻ chứa app vue, ví dụ:
+- <section id="app">
+    Bên trong thẻ này sẽ bị thay thế toàn bộ bởi App Vue
+</section>
+
+Trong file script:
+- Tạo 1 app vue bằng code:
+    const app = Vue.createApp({
+
+    })
+
+- Và app đó sẽ được mount với file html bằng code:
+    app.mount('#app')
+
+- Bên trong ({}) chứa các key như:
+    - template: '<h2>Hello</h2>'  --- key trong obj app Vue
+    template sẽ thay thế hoàn toàn tất cả phần tử đang có 
+    trong thẻ được mount
+    html nên được đặt trong template để khi load trang sẽ k bị thay đổi
+
+    - Hàm: data(){ --- key trong obj appVue
+        return {
+            message: 'Hello',
+        }
+    }
+    Cách để truyền dữ liệu vào html:
+    Lấy giá trị của dữ liệu: 
+    <h1>{{message}}</h1>
+    {{}} có thể truyền vào biến, hàm hoặc bất cứ thứ gì
+    Có thể truyền vào {{}} template string 
+    `message + message` => Hello Hello
+
+    - methods: { --- key trong obj appVue
+        Chứa các function được định nghĩa bên trong
+        các function nếu lấy giá trị data thì dùng this.
+    }
+    
+    Để tương tác với template:
+    <button v-on:click="onChange(changed)">Change</button>
+
+    Sử dụng các directives:
+    v-on:click ="" lắng nghe sự kiện click ---- v-on: === @
+    @click =""
+
+    v-if =""    bằng true sẽ thêm html, bằng false sẽ xoá html
+        Là 1 Conditional rendering
+
+    v-show ="" bằng true sẽ hiện ra, bằng false sẽ ẩn đi
+            -> display: none
+
+    - computed:{ --- key trong obj appVue
+        quá trình tính toán luôn phải trả về dữ liệu 
+        -> key trong computed phải là function
+        -> function phải có return
+    }

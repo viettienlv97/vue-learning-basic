@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue Js</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1 thẻ có id được mount sẽ được gọi là 1 template -->
+    <div id="app" v-cloak>
+        <h4 v-if="true">{{greeting}}</h4>
+        <input v-model="greeting" v-if="isVisible" @keyup.enter="greet" />
+        <br>
+        <button v-on:click="toggleInput">Toggle input</button>
+    </div>
+
+
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    // tạo mới 1 Vue App là 1 object chứa các properties
+    let app = Vue.createApp({
+        // data là 1 function, trả về các biến được gán trị
+        data(){
+            return {
+                greeting: "Hello from Greeting",
+                isVisible: false
+            }
+        },
+        // methods là 1 object, chứa các properties là các function
+        methods:{
+            toggleInput(){
+                // các function trong methods lấy giá trị của data qua this.
+                this.isVisible = !this.isVisible
+            },
+            greet(){
+                console.log(this.greeting)
+                this.greeting = ""
+            }
+        }
+    })
+    // mount Vue App vào trong 1 thẻ html và thẻ đó sẽ được gọi là 1 template
+    app.mount('#app')
+</script>
+</body>
+</html>

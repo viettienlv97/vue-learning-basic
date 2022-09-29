@@ -1,0 +1,27 @@
+Mouse Event
+
+@mouseover ="" : khi chuột di qua element
+para mặc định là Event
+
+@mouseleave ="" : khi chuột rời element
+para mặc định là Event
+
+@dblclick ="" : khi nhấn đúp vào element
+para mặc định là Event
+
+@mousemove ="" : khi chuột chạy trên element
+para mặc định là Event
+
+ForEach trong Vue Js
+v-for ="product in products" :
+products là mảng trong data
+product là con của mảng 
+
+
+v-bind: -Gán biến cho phần tử attribute: class, id, href,...
+    vd: v-bind:class="" - v-bind:src=""
+
+shorthand --> :class  :id   :src
+thêm biến vào trong :class thì thêm {}
+    vd: :class="{message}"
+

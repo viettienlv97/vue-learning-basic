@@ -1,0 +1,96 @@
+- Vue js và react js khá tương đồng:
+
++ Data = state
++ VueX = Redux
++ Vue router = router
++ Component = Component
++ Props
++ Quản lý bằng NPM: node package manager
+
+Cài đặt vue js:
++ node js npm (Đã cài)
++ Vue cli:
+ - cli.vuejs.org
+ - Cài đặt vue/cli global:
+ - npm install -g @vue/cli (chạy bằng terminal bên ngoài)
+ - Kiểm tra version: vue --version
+ - Tạo project mới: vue create `tên project`
+
+Sau khi tạo xong project:
+- cd (tên project)
+- npm run serve
+
+Cấu trúc thư mục:
++ src: source code 
+    - main.js => File gốc
+    - App.vue => Component gốc
+    - assets: hình ảnh, font chữ
+    - components: chứa các Component con
++ Component:
+    - 3 thành phần:
+        - Template: html => hiển thị
+        - Script: js => xử lý
+        - Style: css => làm đẹp
+            - Hỗ trợ scss:
+            - Nếu thêm scoped vào style => style dành riêng cho Component
+
++ Tạo mới 1 Component:
+    - Tạo file .vue chứa đủ 3 thành phần:
+        - template
+        - script 
+        - style (scoped)
+    - Import
+    - Khai báo
+
++ Root element:
+    + Bắt buộc
+
++ Build project
+- npm run build
+
++ Mô hình 2 ways binding
+- Phụ thuộc vào kiểu của element
+
+Ví dụ:
+Làm 1 nút bấm để ẩn hiện 1 thẻ div
+
++ Vòng đời của component trong vue
++ Binding:
+- Đẩy dữ liệu từ dưới data lên trên:
+    - value binding:  <h1>{{value}}</h1> | dưới data là value: "acb"  -> html: <h1>acb</h1>
+    - property binding: <h1 v-bind: id ="id"> </h1> | dưới data sẽ là id: "abc" -> html: <h1 id="abc"></h1>   
+        - Viết tắt: v-bind: -> :    | <h1 :id="id"></h1> -> html: <h1 id="abc"></h1>
+        - có thể thay đổi property có sẵn hoặc tạo mới
+    - style and class binding: 
+        <h1 :class="{class1 = selected}"></h1> | dưới data sẽ là selected: true -> html: <h1 class="class1"></h1>
+
++ Model: 
+- Liên kết element với property:
+    <input type="text" v-model="name"> | dưới data sẽ là name: "Chuỗi" -> thẻ input sẽ có value mặc định là "Chuỗi"
+
++ Event handling: Bắt sự kiện từ các element
+    - v-on: [tên sự kiện] = "ăđăiawoidj(){}" -> ví dụ bên app.vue
+    - v-on: có thể viết tắt là @ -> v-on:click = @click
+    - Prevent default event: huỷ bỏ event mặc định của element vd: @click.Prevent
++ ref: 
+    - Ánh xạ đến element: <h1 ref="name"></h1> | dưới js chạy this.$refs.name -> thẻ h1 có ref là name
+
++ Conditional rendering:
+    - v-show: Ẩn/hiện element theo điều kiện khi bằng false sẽ thêm 1 style display=none <div v-show="isShow">This</div> | dưới data: isShow = true
+    - v-hide: Ngược lại với v-show 
+    - v-if: Cũng ẩn hiện element theo điều kiện khi bằng false sẽ xoá hẳn element chứa nó
+    - v-else: Ngược với v-if nhưng không cần ghi rõ =""
+
++ List rendering:
+    - v-for: ví dụ bên app.vue
+    
++ Methods:
+    - Hàm của vue object ví dụ bên app.vue
++ Watch:
+    - Vue object sẽ theo dõi sự thay đổi của data
++ Hooks:
+    - Mounted:
+
++ Props:
+    - Dữ liệu đẩy từ component cha sang component con
+    - Dùng mảng tên
